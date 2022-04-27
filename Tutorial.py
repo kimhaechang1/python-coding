@@ -161,3 +161,13 @@ print(list(product(data,repeat=2)))
 from itertools import combinations_with_replacement
 
 print(list(combinations_with_replacement(data,2)))
+
+# Math 라이브러리 속 유용한 함수들
+
+import math
+
+print(math.pi) # pi값 출력
+print(math.gcd(12,24)) # 최대 공약수 출력
+print(math.factorial(5)) # 5!
+print(math.lcm(12,24)) # 최소 공배수 출력
+
