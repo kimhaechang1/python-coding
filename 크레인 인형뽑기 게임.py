@@ -29,27 +29,25 @@
 # 인형의 처음 상태는 문제에 주어진 예시와 같습니다. 크레인이 [1, 5, 3, 5, 1, 2, 1, 4] 번 위치에서 차례대로 인형을 집어서 바구니에 옮겨 담은 후, 상태는 아래 그림과 같으며 바구니에 담는 과정에서 터트려져 사라진 인형은 4개 입니다.
 
 
-# 1. result deque의 끝을 확인해서 같으면 pop() 1번에 count+=2
-# 2. 각각의 세로줄을 모두 deque에 넣는다
-# 3. 그렇게 deque로 이루어진 리스트를 만든다
 from collections import deque
-
-
 def solution(board, moves):
-    a = deque()
-    a.append(1)
-    a.append(2)
-    b = []
-    b.append(a)
-    c = b[0]
-
-    print(c.popleft())
-    print(c)
-    a = [[0, 0, 0, 0, 0],
-         [0, 0, 1, 0, 3],
-         [0, 2, 5, 0, 1],
-         [4, 2, 4, 4, 2],
-         [3, 5, 1, 3, 1]]
-    answer = 11
+    answer = 0
+    result =deque()
+    for k in moves:
+        for i in range(len(board)):
+            if board[i][k-1] != 0 :
+                if len(result) == 0 or result[-1] != board[i][k-1]:
+                    result.append(board[i][k-1])
+                else:
+                    result.pop()
+                    answer+=2
+                board[i][k-1]=0
+                break
     return answer
 
+# 데큐로 된 리스트를 만들어서 개별적으로 관리하려 해봤자 안된다.
+# 어짜피 2차원 리스트에 열을 고정시켜 행만 한칸씩 이동시키면서 0아닐때
+# 해당하는 인덱스의 값을 결과 값에 넣어주며
+# 넣어주기전 결과 데큐에 peek와 비교하여 같으면 오히려 pop을 통해 원소를 꺼내주고
+# 결국 넣을 예정인 원소와 이미 있던 원소 총 2개가 pop이 되었다고 생각해도 되므로
+# 날아가버리는 인형은 2개씩 늘어난다.(answer+=2)
