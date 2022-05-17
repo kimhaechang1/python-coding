@@ -81,5 +81,5 @@ def solution(dartResult):
 
 # string.replace(string, string) : 특정 string 내에 어떤 string이 존재한다면 두번째 매게변수 string 으로 교체 해준다.
 
-# 이 함수를 사용하면 '1','0' 부분을 전처리 해줄 수 있다.
+# 이 함수를 사용하면 '1','0' 즉 숫자 10에 대한 부분을 전처리 해줄 수 있다.
 
