@@ -4,6 +4,6 @@
 # a,b = b, a%b 이고 b==0이 되는 순간의 a의 값이 최대공약수가 된다.
 # 즉, 두 수를 나누었을때 나누어 떨어지는 순간의 a가 최대공약수가 된다.
 def gcd(a,b):
-    while b==0:
+    while b!=0:
         a,b = b, a%b
     return a
