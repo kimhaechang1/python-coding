@@ -101,6 +101,10 @@ def mid(l,n):
     print(l[n//2])
 
 def fre(l,n):
+
+    # 같은 빈도수를 가진 숫자가 여럿 이라면
+    # 그 수들 중에서 두번째로 작은 수, 즉 최대 빈도수와 같은 빈도수를 가지는 수들을
+    # 묶어놓고 정렬하여 두번째 인덱스를 출력한다.
     ld = collections.Counter(l)
     ld = sorted(ld.items(), key = lambda x : x[1], reverse=True)
     m = ld[0][1]
