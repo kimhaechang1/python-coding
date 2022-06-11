@@ -228,7 +228,7 @@ class Car:
         return self.make
 
     def getDesc(self):
-        return "차량 = (" + str(self.make)+","+\str(self.model)+","+\str(self.color)+","+\str(self.price)+")"
+        return "차량 = (" + str(self.make)+","+str(self.model)+","+str(self.color)+","+str(self.price)+")"
 
 class ElectricCar(Car):
     def __init__(self, make, model, color, price, batterySize):
@@ -500,7 +500,24 @@ while line !="":
     print(line)
     line = f.readline().rstrip()
 
+f.close()
+f = open("d:\\input.txt","a",encoding="UTF-8")
+line = "안녕하세요\n김회창입니다."
+f.write(line)
+f.close()
 
+f = open("d:\\input.txt","r",encoding="UTF-8")
+line = f.readline().rstrip()
+while line !="":
+    print(line)
+    line = f.readline().rstrip()
+f.close()
+import os
+print(os.getcwd())
+names = os.listdir()
+for name in names:
+    if name.endswith(".md"):
+        print(name)
 class Car:
     def __init__(self, make, model, color, price):
         self.__make = make
@@ -604,3 +621,7 @@ x = np.array([[1,2,3],[4,5,6],[7,8,9]])
 #x = x.transpose()
 x = x.T
 print(x)
+
+turple = (10,20,30,40,50)
+a,b,c,d,e = turple
+print((e,d,c,b,a))
